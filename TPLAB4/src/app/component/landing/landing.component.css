@@ -1,0 +1,69 @@
+
+  .landing-page {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .landing-header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .landing-header h1 {
+    font-size: 36px;
+  }
+  
+  .landing-header p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .landing-header button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .landing-header button:hover {
+    background-color: #00418a;
+  }
+  
+  /* Estilos de los productos destacados */
+  .product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  .product img {
+    width: 300px;
+    height: auto;
+  }
+  
+  .product h3 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .product p {
+    font-size: 16px;
+  }
+  
+  /* Estilos del pie de página */
+  .landing-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
