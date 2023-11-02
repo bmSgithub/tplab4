@@ -8,7 +8,9 @@ import { lastValueFrom } from "rxjs";
 })
 
 export class AuthService {
+
     constructor(private apiService: ApiService){}
+    
     public async checkAuthentication(email:string, password: string): Promise<boolean>{
         let users: User[] = [];
         
