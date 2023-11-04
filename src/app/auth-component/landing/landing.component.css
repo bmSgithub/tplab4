@@ -1,69 +1,268 @@
 
-  .landing-page {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-  }
+*{
+  box-sizing: inherit;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
   
-  .landing-header {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
+
+  margin: 0;
+  padding: 0;
+}
+header{
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+  height: 80px;
+  padding: 5px 10%;
+  background-color: white;
+}
+
+.logo{
+display: flex;
+}
+
+.titulito{
+margin-top: 1.5rem;
+
+}
+
+.logo h2{
+  color: black;
+  font-weight: bold;
+}
+
+header .logo{
+  margin-right: auto;
+  justify-content: flex-start;
+}
+
+.logo img{
+height: 70px;
+width: auto;
+}
+
+
+.navegador li{
+  display: inline-block;
+  padding: 0 20px;
+  margin-top: 1rem;
+}
+
+.navegador a{
+  font-size: 900;
+  color: black;
+  text-decoration: none;
+}
+
+
+/* #region Boton */
+.btn-23 button{
+  margin: bottom 3rem ;
+}
+
+.btn-23,
+.btn-23 *,
+.btn-23 :after,
+.btn-23 :before,
+.btn-23:after,
+.btn-23:before {
+border: 0 solid;
+box-sizing: border-box;
+}
+
+.btn-23 {
+-webkit-tap-highlight-color: transparent;
+-webkit-appearance: button;
+background-color: #000;
+background-image: none;
+color: #fff;
+cursor: pointer;
+font-size: 100%;
+font-weight: 900;
+line-height: 1.5;
+margin: 0;
+-webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+padding: 0;
+text-transform: uppercase;
+}
+
+.btn-23:disabled {
+cursor: default;
+}
+
+.btn-23:-moz-focusring {
+outline: auto;
+}
+
+.btn-23 svg {
+display: block;
+vertical-align: middle;
+}
+
+.btn-23 [hidden] {
+display: none;
+}
+
+.btn-23 {
+border-radius: 0;
+border-width: 2px;
+overflow: hidden;
+padding: 0.8rem 1.5rem;
+position: relative;
+}
+
+.btn-23 span {
+display: grid;
+inset: 0;
+place-items: center;
+position: absolute;
+transition: opacity 0.2s ease;
+}
+
+.btn-23 .marquee {
+--spacing: 5em;
+--start: 0em;
+--end: 5em;
+-webkit-animation: marquee 1s linear infinite;
+animation: marquee 1s linear infinite;
+-webkit-animation-play-state: paused;
+animation-play-state: paused;
+opacity: 0;
+position: relative;
+text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0,
+  #fff calc(var(--spacing) * -2) 0;
+}
+
+.btn-23:hover .marquee {
+-webkit-animation-play-state: running;
+animation-play-state: running;
+opacity: 1;
+}
+
+.btn-23:hover .text {
+opacity: 0;
+}
+
+@-webkit-keyframes marquee {
+0% {
+  transform: translateX(var(--start));
+}
+
+to {
+  transform: translateX(var(--end));
+}
+}
+
+@keyframes marquee {
+0% {
+  transform: translateX(var(--start));
+}
+
+to {
+  transform: translateX(var(--end));
+}
+}
+
+/*#endregion */
+
+main{
+  background-image: url(src\assets\images\landing\fondo2.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center top;
+  height: auto;
+}
+
+.textoYboton{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 10rem;
+  padding-right: 10rem;
+  color: white;
+  font-size: 50px;
+}
+.texto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texto span{
+  font-weight: bold;
+}
+
+.texto button{
+  border: none;
+  width: 10px;
+  height: 10px;
+}
+
+.tarjetitas{
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  width: 100%;
+  justify-content: space-around;
+
+}
+
+.tarjeta{
+  display: flex;
+  padding-left: 1rem;
+  width: 270px;
+  height: 130px;
+  background-color: white;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+.loguito{
+  display: flex;
+  justify-content: center;
+  background-color: #EB5506;
+  margin-top: 1.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
   
-  .landing-header h1 {
-    font-size: 36px;
-  }
+}
+
+.loguito i{
+
+ 
+  color: white;/* Ancho del icono al 80% del contenedor */
+  display: flex; /* Permite que el contenido se expanda horizontalmente */
+  justify-content: center; /* Alinea horizontalmente el contenido en el centro */
+  align-items: center;
+  font-size: 2rem;
+}
+
+
+
+.textoTarjeta{
+
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem ;
+  margin-top: 0.3rem;
   
-  .landing-header p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
+}
+.textoTarjeta h2{
+
   
-  .landing-header button {
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .landing-header button:hover {
-    background-color: #00418a;
-  }
-  
-  /* Estilos de los productos destacados */
-  .product {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-  }
-  
-  .product img {
-    width: 300px;
-    height: auto;
-  }
-  
-  .product h3 {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-  
-  .product p {
-    font-size: 16px;
-  }
-  
-  /* Estilos del pie de página */
-  .landing-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    font-size: 14px;
-  }
-  
+  font-weight: bold;
+}
+
+
+.tarjeta{
+  transition: transform 0.3s; 
+}
+
+.tarjeta:hover{
+  transform: scale(1.2);
+}
