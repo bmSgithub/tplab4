@@ -11,3 +11,13 @@ export class User implements IUser{
       this.password = user == undefined ? '' : user.password;
     }
   }
+
+export class Category {
+    categoryId: number[] = [];
+    exerciseIds: number[] = [];
+  
+    constructor(categoryData?: any) {
+        this.categoryId = categoryData.categoryId || [];
+        this.exerciseIds = categoryData.exerciseIds || [];
+    }
+  }

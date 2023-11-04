@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { User } from '../Models';
+import { Category, User } from '../Models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,6 @@ import { User } from '../Models';
 export class ApiService {
 
   baseUrl: string = "http://localhost:3000"
-  apiUrl: string = ""
 
   constructor(private http: HttpClient) { }
 
@@ -18,4 +17,33 @@ export class ApiService {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}&password=${password}`);
   }
   //#endregion
+
+  //#region Get exercises
+  getCategoryDataByCategoryId(categoryId: number): Observable<Category> {
+    return this.http.get<Category[]>(`${this.baseUrl}/allowedexercises`).pipe(
+      map((categories: Category[]) => categories.find(category => category.categoryId.includes(categoryId)) || new Category())
+    );
+  }
+
+  shuffleArray(array: number[]): number[] {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+  }
+  
+  getRandomExerciseIds(categoryData: Category, count: number): number[] {
+    if (!categoryData || count <= 0) {
+      return [];
+    }
+  
+    const shuffledExerciseIds = this.shuffleArray(categoryData.exerciseIds);
+    return shuffledExerciseIds.slice(0, Math.min(count, shuffledExerciseIds.length));
+  }
+
+  
+  //#endregion
+
 }
