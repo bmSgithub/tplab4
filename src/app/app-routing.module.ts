@@ -5,6 +5,7 @@ import { LoginComponent } from './auth-component/login/login.component';
 import { HomePageComponent } from './page-component/home-page/home-page.component';
 import { MuscleGroupPageComponent } from './page-component/muscle-group-page/muscle-group-page.component';
 import { MuscleViewPageComponent } from './page-component/muscle-view-page/muscle-view-page.component';
+import { RegisterComponent } from './auth-component/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path:'login',
     component: LoginComponent
+  },
+  {
+    path:'register',
+    component: RegisterComponent
   },
   {
     path:'home',
