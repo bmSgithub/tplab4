@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { User } from "../Models";
-import { Observable, lastValueFrom, map } from "rxjs";
+import { lastValueFrom} from "rxjs";
 import { ApiService } from "./api.service";
   
 @Injectable({
