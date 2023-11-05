@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/Models';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
-  public user: User = new User();
-  public verificado:boolean = false;
-  public opcion:boolean = false;
+export class RegisterComponent {
 
-  constructor(private authService: AuthService, private router: Router,private formsBuilder: FormBuilder) {}
+  public verificado:boolean = false;
 
   formulario: FormGroup = this.formsBuilder.group({
     userName: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(3)]],
@@ -22,22 +19,9 @@ export class LoginComponent {
     password: ['', [Validators.required, Validators.pattern(/[\d!@#$%^&*(),.?":{}|<>]/), Validators.minLength(3)]]
   })
 
-  /* login */
 
-  public async checkAuthentication() {
-    const check = this.authService.checkAuthentication(this.user.email, this.user.password);
+  constructor(private authService: AuthService, private formsBuilder: FormBuilder,private router:Router) { }
 
-    if(await check){
-      this.router.navigate(['/home'])
-    }
-    else
-    {
-      alert("No existe el usuario");
-    }
-  }
-
-
-  /* register */
 
   public async verificarCuenta(email: string): Promise<boolean> {
 
@@ -106,8 +90,4 @@ export class LoginComponent {
 
     return user;
   }
-
-   
-
-
 }

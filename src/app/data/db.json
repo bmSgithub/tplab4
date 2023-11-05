@@ -1,41 +1,44 @@
 {
-    "allowedexercises": [
-      {
-        "categoryId": [10, 15],
-        "exerciseIds": [458, 927, 167, 427, 167, 171, 377, 576, 1079]
-      },
-      {
-        "categoryId": [8, 13],
-        "exerciseIds": [76, 549, 95, 92, 222, 91, 197, 572, 571, 272, 275, 482, 691, 246, 465, 659, 566, 567, 348, 543, 822, 829, 694, 349, 50, 691, 1080, 1084, 1085, 256, 478]
-      },
-      {
-        "categoryId": [12],
-        "exerciseIds": [301, 81, 154, 513, 83, 525, 84, 394, 484, 828, 957, 1022, 475, 1087, 184]
-      },
-      {
-        "categoryId": [9, 14],
-        "exerciseIds": [364, 268, 206, 375, 257, 615, 365, 366, 367, 294, 203, 999, 849, 851, 906, 1088]
-      },
-      {
-        "categoryId": [11],
-        "exerciseIds": [73, 537, 539, 135, 75, 185, 237, 323, 538, 538, 135, 194, 238, 1086]
-      }
-    ],
-    "users": [
-        {
-          "id": 1,
-          "email": "bmachado@mail.com",
-          "password": "test12345"
-        },
-        {
-          "id": 2,
-          "email": "abattisti@mail.com",
-          "password": "12345test"
-        },
-        {
-          "id": 3,
-          "email": "mcabrera@mail.com",
-          "password": "12test345"
-        }
-      ]
+  "allowedexercises": [
+    {
+      "categoryId": [10, 15],
+      "exerciseIds": [458, 927, 167, 427, 167, 171, 377, 576, 1079]
+    },
+    {
+      "categoryId": [8, 13],
+      "exerciseIds": [76, 549, 95, 92, 222, 91, 197, 572, 571, 272, 275, 482, 691, 246, 465, 659, 566, 567, 348, 543, 822, 829, 694, 349, 50, 691, 1080, 1084, 1085, 256, 478]
+    },
+    {
+      "categoryId": [12],
+      "exerciseIds": [301, 81, 154, 513, 83, 525, 84, 394, 484, 828, 957, 1022, 475, 1087, 184]
+    },
+    {
+      "categoryId": [9, 14],
+      "exerciseIds": [364, 268, 206, 375, 257, 615, 365, 366, 367, 294, 203, 999, 849, 851, 906, 1088]
+    },
+    {
+      "categoryId": [11],
+      "exerciseIds": [73, 537, 539, 135, 75, 185, 237, 323, 538, 538, 135, 194, 238, 1086]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "bmchado",
+      "email": "bmachado@mail.com",
+      "password": "test12345"
+    },
+    {
+      "id": 2,
+      "userName": "abattisti",
+      "email": "abattisti@mail.com",
+      "password": "12345test"
+    },
+    {
+      "id": 3,
+      "userName": "mcabrera",
+      "email": "mcabrera@mail.com",
+      "password": "12test345"
+    }
+  ]
 }

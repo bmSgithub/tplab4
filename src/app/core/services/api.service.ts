@@ -16,6 +16,22 @@ export class ApiService {
   getUserToAuth(email:string, password: string): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}&password=${password}`);
   }
+
+  public getUsersToRegister2(UserName:string): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/users?userName=${UserName}`);
+  }
+  public getUsersToRegister(email:string): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
+  }
+
+  public AddUser(user:User): Observable<boolean>{
+    return this.http.post(`${this.baseUrl}/users`,user).pipe(
+      map(resp=>{return true}),
+      catchError(error => of(false))
+    );
+  }
+
+
   //#endregion
 
   //#region Get exercises

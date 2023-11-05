@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-muscle-group-page',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./muscle-group-page.component.css']
 })
 export class MuscleGroupPageComponent {
+  constructor(private router:Router){}
 
+
+ public irCardioAbs()
+ {
+   this.router.navigate(["/muscleView"]);
+ }
+   
 }
