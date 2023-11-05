@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent {
   public user: User = new User();
   public verificado:boolean = false;
-  public opcion:boolean = false;
+  public opcion:boolean = true;
 
   constructor(private authService: AuthService, private router: Router,private formsBuilder: FormBuilder) {}
 
@@ -21,6 +21,16 @@ export class LoginComponent {
     email: ['', [Validators.email, Validators.required]],
     password: ['', [Validators.required, Validators.pattern(/[\d!@#$%^&*(),.?":{}|<>]/), Validators.minLength(3)]]
   })
+
+  public cambiartoRegister()
+  {
+    this.opcion = false;
+  }
+
+  public cambiartoLogin()
+  {
+     this.opcion = true;
+  }
 
   /* login */
 

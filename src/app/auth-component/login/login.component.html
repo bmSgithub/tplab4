@@ -1,4 +1,11 @@
-<div  *ngIf="opcion"  class="login-container">
+<div>
+<a class="interactive" (click)="cambiartoLogin()">Login</a>
+<br>
+<a class="interactive" (click)="cambiartoRegister()">Register</a>
+</div>
+
+
+<div *ngIf="opcion" class="login-container">
     <div class="login-box">
       <h2>Iniciar Sesión</h2>
       <form (ngSubmit)="checkAuthentication()">
@@ -14,14 +21,13 @@
       </form>
     </div>
   </div>
-  
+
 
 
   <!-- register -->
-
   <div *ngIf="!opcion" class="register-container">
     <div class="register-box">
-        <h2>Iniciar Sesión</h2>
+        <h2>Crear Cuenta</h2>
         <form id="formulario" (ngSubmit)="verUsuario()" [formGroup]="formulario">
             <div class="form-group">
                 <label for="userName">User Name:</label>
@@ -68,8 +74,7 @@
             <br>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"
-                    formControlName="password">
+                <input type="password" id="password" name="password" placeholder="Enter your password" formControlName="password">
 
                 <span class="error" *ngIf="formulario.controls['password'].getError('required') && formulario.touched ">
                     <br>
@@ -77,13 +82,13 @@
 
                 </span>
 
-                <span class="error" *ngIf="formulario.controls['password'].getError('pattern') ">
+                <span class="error" *ngIf="formulario.controls['password'].getError('pattern')">
                     <br>
                     Agregar un simbolo o numero para mayor seguridad
 
                 </span>
 
-                <span class="error" *ngIf="formulario.controls['password'].getError('minlength') ">
+                <span class="error" *ngIf="formulario.controls['password'].getError('minlength')">
                     <br>
                     Min caracteres 3
 
