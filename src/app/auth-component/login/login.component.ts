@@ -25,11 +25,27 @@ export class LoginComponent {
   public cambiartoRegister()
   {
     this.opcion = false;
+    const miElemento = document.getElementById('imagencita') as HTMLImageElement;
+    if (miElemento) {
+     miElemento.src ="assets/images/landing/GORDO.png" ;
+   }
+   const texto=document.getElementById("textito");
+   if(texto){
+     texto.innerHTML="First Time?";
+   }
   }
 
   public cambiartoLogin()
   {
      this.opcion = true;
+     const miElemento = document.getElementById('imagencita') as HTMLImageElement;
+     if (miElemento) {
+      miElemento.src ="assets/images/landing/MUSCULOSO.png";
+    }
+    const texto=document.getElementById("textito");
+    if(texto){
+      texto.innerHTML="Welcome Back";
+    }
   }
 
   /* login */

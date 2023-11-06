@@ -24,7 +24,6 @@ display: flex;
 
 .titulito{
 margin-top: 1.5rem;
-
 }
 
 .logo h2{
@@ -266,3 +265,15 @@ main{
 .tarjeta:hover{
   transform: scale(1.2);
 }
+
+.imagenGordiFlaco{
+  display:flex;
+  margin-top: 2rem;
+}
+
+.imagenGordiFlaco img{
+  width: 20%;
+  height: auto;
+}
+
+
