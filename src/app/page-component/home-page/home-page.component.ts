@@ -8,20 +8,16 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
 
-  public data:boolean | null = null; 
-
+ 
  constructor(private router:Router){}
 
  public irMusculacion()
  {
-   this.data = true;
-   this.router.navigate(["/muscleGroup",this.data]);
+   this.router.navigate(["/muscleGroup"]);
  }
 
 
-  public irCardio()
-  {
-    this.data = false;
-    this.router.navigate(["/muscleGroup",this.data]);
+  public irCardioAbs(categoryId: number) {
+    this.router.navigate(["/muscleView", categoryId]);
   }
 }

@@ -8,26 +8,10 @@ import { ExerciseService } from 'src/app/core/services/exercise.service';
   templateUrl: './muscle-group-page.component.html',
   styleUrls: ['./muscle-group-page.component.css']
 })
-export class MuscleGroupPageComponent implements OnInit{
+export class MuscleGroupPageComponent {
 
-  public select:boolean | null = null;
-
-  constructor(private router: Router, private route: ActivatedRoute) {}
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params=>{
-      const parametro = params.get('data');
-      
-      if(parametro === 'true')
-      {
-        this.select = true;
-      }
-      else
-      {
-        this.select = false;
-      }
-    })
-  }
-
+  constructor(private router: Router) {}
+  
   public irCardioAbs(categoryId: number) {
     this.router.navigate(["/muscleView", categoryId]);
   }
