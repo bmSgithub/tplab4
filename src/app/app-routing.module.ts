@@ -25,7 +25,7 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path:'muscleGroup/:data',
+    path:'muscleGroup',
     component: MuscleGroupPageComponent
   },
   {
