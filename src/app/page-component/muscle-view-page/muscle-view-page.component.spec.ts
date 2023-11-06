@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MuscleViewPageComponent } from './muscle-view-page.component';
+import { MuscleViewComponent } from './muscle-view-page.component';
 
 describe('MuscleViewPageComponent', () => {
-  let component: MuscleViewPageComponent;
-  let fixture: ComponentFixture<MuscleViewPageComponent>;
+  let component: MuscleViewComponent;
+  let fixture: ComponentFixture<MuscleViewComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

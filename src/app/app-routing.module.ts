@@ -29,7 +29,7 @@ const routes: Routes = [
     component: MuscleGroupPageComponent
   },
   {
-    path:'muscleView',
+    path:'muscleView/:id',
     component: MuscleViewPageComponent
   },
   {

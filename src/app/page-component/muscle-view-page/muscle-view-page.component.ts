@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseInfo } from 'src/app/core/Models';
 import { ExerciseService } from 'src/app/core/services/exercise.service';
 
@@ -9,13 +9,22 @@ import { ExerciseService } from 'src/app/core/services/exercise.service';
   styleUrls: ['./muscle-view-page.component.css']
 })
 
-export class MuscleViewPageComponent{
+export class MuscleViewPageComponent implements OnInit{
   public id: number = 0;
   public basesId: number[] = []
   public exerciseInfoArray: ExerciseInfo[] = [];
 
-  constructor(private router: Router, private exerciseService: ExerciseService) {}
+  constructor(private router: Router, private exerciseService: ExerciseService, private route: ActivatedRoute) {}
 
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id');
+      if (idParam) {
+        this.id = +idParam;
+        this.getExerciseBase();
+      }
+    });
+  }
 
   public async getExerciseBase() {
     try {

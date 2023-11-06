@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExerciseInfo } from 'src/app/core/Models';
+import { ExerciseService } from 'src/app/core/services/exercise.service';
 
 @Component({
   selector: 'app-muscle-group-page',
@@ -7,12 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./muscle-group-page.component.css']
 })
 export class MuscleGroupPageComponent {
-  constructor(private router:Router){}
 
+  constructor(private router: Router) {}
 
- public irCardioAbs()
- {
-   this.router.navigate(["/muscleView"]);
- }
-   
+  public irCardioAbs(categoryId: number) {
+    this.router.navigate(["/muscleView", categoryId]);
+  }
 }
