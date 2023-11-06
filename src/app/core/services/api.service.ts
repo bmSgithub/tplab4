@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { Category, User } from '../Models';
+import { Category, User, Exercise, ExerciseImage, ExerciseInfo, ExerciseVideo, ExerciseList, ExerciseImageList, ExerciseVideoList } from '../Models';
+import { API_ENDPOINTS } from './api.endpoints';
 
 @Injectable({
   providedIn: 'root'
@@ -62,4 +63,24 @@ export class ApiService {
   
   //#endregion
 
+  //#region Get Exercise Info
+  getExercise(baseId: number): Observable<Exercise> {
+    return this.http.get<ExerciseList>(`${API_ENDPOINTS.exercise}${baseId}`).pipe(
+      map(exerciseList => exerciseList.results[0])
+    );
+  }
+
+  getExerciseImage(baseId: number): Observable<ExerciseImage> {
+    return this.http.get<ExerciseImageList>(`${API_ENDPOINTS.exerciseImage}${baseId}`).pipe(
+      map(exerciseImageList => exerciseImageList.results[0])
+    );
+  }
+
+  getExerciseVideo(baseId: number): Observable<ExerciseVideo> {
+    return this.http.get<ExerciseVideoList>(`${API_ENDPOINTS.video}${baseId}`).pipe(
+      map(exerciseVideoList => exerciseVideoList.results[0])
+    );
+  }
+  
+  //#endregion
 }
