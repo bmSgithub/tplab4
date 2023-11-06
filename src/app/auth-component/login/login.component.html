@@ -1,108 +1,209 @@
-<div>
-<a class="interactive" (click)="cambiartoLogin()">Login</a>
-<br>
-<a class="interactive" (click)="cambiartoRegister()">Register</a>
-</div>
-
-
-<div *ngIf="opcion" class="login-container">
-    <div class="login-box">
-      <h2>Iniciar Sesión</h2>
-      <form (ngSubmit)="checkAuthentication()">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your e-mail" [(ngModel)] = "user.email" required>
+<div class="bigOne">
+  <div class="contenedorTotal">
+    <div class="loginRegister">
+      <div class="logo">
+        <img src="assets/images/landing/icono.png" alt="" />
+        <div class="titulito">
+          <h2>GYMAPI</h2>
         </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" [(ngModel)] = "user.password" required>
+      </div>
+      <div class="cambioInput">
+        <a class="interactive" (click)="cambiartoLogin()">Login</a>
+        <a class="interactive" (click)="cambiartoRegister()">Register</a>
+      </div>
+      <div class="imagenGordiFlaco">
+        <img
+          src="assets\images\landing\MUSCULOSO.png"
+          alt=""
+          id="imagencita"
+          class="imagencita"
+        />
+        <h2 id="textito">Welcome Back</h2>
+      </div>
+    </div>
+
+    <div class="inputs">
+      <div *ngIf="opcion" class="login-container">
+        <div class="imagencitaInput">
+          <img src="assets\images\landing\icono2.png" alt="" id="imagencita2" />
         </div>
-        <button type="submit">Iniciar Sesión</button>
-      </form>
+        <div class="login-box">
+          <div class="tituloInput">
+            <h2>Login</h2>
+          </div>
+          <form (ngSubmit)="checkAuthentication()">
+            <div class="formulario">
+              <div class="form-group">
+                <label for="email"></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  [(ngModel)]="user.email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"></label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  [(ngModel)]="user.password"
+                  required
+                />
+              </div>
+              <button type="submit" class="botoncito">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- register -->
+      <div class="inputs">
+        <div *ngIf="!opcion" class="register-container">
+          <div class="imagencitaInput">
+            <img
+              src="assets\images\landing\icono2.png"
+              alt=""
+              id="imagencita2"
+            />
+          </div>
+          <div class="register-box">
+            <div class="tituloInput">
+              <h2>Register</h2>
+            </div>
+            <form
+              id="formulario"
+              (ngSubmit)="verUsuario()"
+              [formGroup]="formulario"
+            >
+              <div class="formulario2">
+                <div class="form-group">
+                  <label for="userName"></label>
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder="User Name"
+                    formControlName="userName"
+                  />
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['userName'].getError('required') &&
+                      formulario.touched
+                    "
+                  >
+                    <br />
+                    ERROR
+                  </span>
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['userName'].getError('maxlength')
+                    "
+                  >
+                    <br />
+                    15 characters maximum
+                  </span>
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['userName'].getError('minlength')
+                    "
+                  >
+                    <br />
+                    3 characters minimum
+                  </span>
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="email"></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    formControlName="email"
+                  />
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['email'].getError('required') &&
+                      formulario.touched
+                    "
+                  >
+                    <br />
+                    ERROR
+                  </span>
+
+                  <span
+                    class="error"
+                    *ngIf="formulario.controls['email'].getError('email')"
+                  >
+                    <br />
+                    Invalid email format
+                  </span>
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="password"></label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['password'].getError('required') &&
+                      formulario.touched
+                    "
+                  >
+                    <br />
+                    ERROR
+                  </span>
+
+                  <span
+                    class="error"
+                    *ngIf="formulario.controls['password'].getError('pattern')"
+                  >
+                    <br />
+                    Add a symbol, or number for greater security
+                  </span>
+
+                  <span
+                    class="error"
+                    *ngIf="
+                      formulario.controls['password'].getError('minlength')
+                    "
+                  >
+                    <br />
+                    Min caracteres 3
+                  </span>
+                </div>
+              
+
+              <span class="error" *ngIf="verificado">
+                El nombre de usuario o email ya existen
+              </span>
+              <br />
+              <button type="submit" class="botoncito">Sign up</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-
-
-  <!-- register -->
-  <div *ngIf="!opcion" class="register-container">
-    <div class="register-box">
-        <h2>Crear Cuenta</h2>
-        <form id="formulario" (ngSubmit)="verUsuario()" [formGroup]="formulario">
-            <div class="form-group">
-                <label for="userName">User Name:</label>
-                <input type="text" id="userName" name="userName" placeholder="Enter your User Name"
-                    formControlName="userName">
-
-                <span class="error" *ngIf="formulario.controls['userName'].getError('required') && formulario.touched ">
-                    <br>
-                    ERROR
-
-                </span>
-
-                <span class="error" *ngIf="formulario.controls['userName'].getError('maxlength') ">
-                    <br>
-                    Max caracteres 15
-
-                </span>
-
-                <span class="error" *ngIf="formulario.controls['userName'].getError('minlength') ">
-                    <br>
-                    Min caracteres 3
-
-                </span>
-         
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your e-mail" formControlName="email">
-
-                <span class="error" *ngIf="formulario.controls['email'].getError('required') && formulario.touched ">
-                    <br>
-                    ERROR
-
-                </span>
-
-                <span class="error" *ngIf="formulario.controls['email'].getError('email') ">
-                    <br>
-                    Formato de email invalido
-
-                </span>
-
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" formControlName="password">
-
-                <span class="error" *ngIf="formulario.controls['password'].getError('required') && formulario.touched ">
-                    <br>
-                    ERROR
-
-                </span>
-
-                <span class="error" *ngIf="formulario.controls['password'].getError('pattern')">
-                    <br>
-                    Agregar un simbolo o numero para mayor seguridad
-
-                </span>
-
-                <span class="error" *ngIf="formulario.controls['password'].getError('minlength')">
-                    <br>
-                    Min caracteres 3
-
-                </span>
-
-            </div>
-
-            <span class="error" *ngIf="verificado">
-
-             El nombre de usuario o email ya existen
-
-            </span>
-            <br>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-    </div>
 </div>
