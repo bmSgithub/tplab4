@@ -1,21 +1,25 @@
 .category-buttons {
     display: flex;
-    flex-direction: column; /* Display buttons vertically */
-    align-items: center; /* Center align buttons horizontally */
+    flex-direction: column;
+    align-items: center; 
   }
   
   .category-button {
-    font-size: 1.5em; /* Larger font size */
-    background-color: #FFA500; /* Orange background color */
-    color: #FFFFFF; /* White text color */
+    font-size: 1.5em;
+    background-color: #FFA500; 
+    color: #FFFFFF; 
     border: none;
-    border-radius: 10px; /* Rounded corners */
-    padding: 15px 20px; /* Bigger button size */
-    margin: 10px; /* Add margin between buttons */
+    border-radius: 10px;
+    padding: 15px 20px; 
+    margin: 10px; 
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .category-button:hover {
-    background-color: #FF8C00; /* Darker orange on hover */
+    background-color: #FF8C00; 
+  }
+
+  app-home-page{
+    visibility: hidden;
   }

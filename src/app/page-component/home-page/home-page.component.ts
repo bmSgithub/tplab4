@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +8,20 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
 
+  public data:boolean | null = null; 
 
  constructor(private router:Router){}
 
  public irMusculacion()
  {
-   this.router.navigate(["/muscleGroup"]);
+   this.data = true;
+   this.router.navigate(["/muscleGroup",this.data]);
  }
 
 
-
+  public irCardio()
+  {
+    this.data = false;
+    this.router.navigate(["/muscleGroup",this.data]);
+  }
 }

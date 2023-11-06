@@ -25,12 +25,12 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path:'muscleGroup',
+    path:'muscleGroup/:data',
     component: MuscleGroupPageComponent
   },
   {
     path:'muscleView/:id',
-    component: MuscleViewPageComponent
+    component: MuscleViewPageComponent,
   },
   {
     path: '',

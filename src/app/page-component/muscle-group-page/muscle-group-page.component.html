@@ -1,7 +1,13 @@
-<div class="category-buttons">
-    <button class="category-button" (click)="irCardioAbs(10)">Cardio</button>
+<app-home-page></app-home-page>
+
+
+<div *ngIf="select" class="category-buttons">
     <button class="category-button" (click)="irCardioAbs(9)">Legs</button>
     <button class="category-button" (click)="irCardioAbs(11)">Chest</button>
     <button class="category-button" (click)="irCardioAbs(8)">Arms</button>
     <button class="category-button" (click)="irCardioAbs(12)">Back</button>
-  </div>
+</div>
+
+<div *ngIf="!select" class="category-buttons">
+    <button class="category-button" (click)="irCardioAbs(10)">Cardio</button>
+</div>

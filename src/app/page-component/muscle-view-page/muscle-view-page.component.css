@@ -5,8 +5,8 @@
   border: 1px solid black;
   border-radius: 10px;
   flex-direction: column;
-  width: 30%; /* Wider orange background */
-  /* Remove flex-direction: column; */
+  width: 30%; 
+  
 }
 
 .field-container {
@@ -15,7 +15,7 @@
   border-radius: 10px;
   padding: 10px;
   margin: 5px 0;
-  width: auto; /* Smaller white rectangle */
+  width: auto; 
   text-align: center
 }
 
@@ -41,7 +41,7 @@ a.video-link {
 }
 
 a.video-link:disabled {
-  background-color: #ccc; /* Gray background for disabled state */
+  background-color: #ccc; 
   cursor: not-allowed;
-  pointer-events: none; /* Disable pointer events to make it non-clickable */
+  pointer-events: none;
 }
