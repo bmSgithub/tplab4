@@ -1,1 +1,13 @@
-
+<div class="register-container">
+    <div class="register-box2">
+            <h2>Exercisebases</h2>
+            <form id="formulario2" (ngSubmit)="getExerciseBase()">
+                <div class="form-group">
+                    <label for="categoryId">Category Id:</label>
+                    <input type="number" id="id" name="id" placeholder="Enter your categoryid" [(ngModel)] = "id" required>
+                </div>
+                <br>
+                <button type="submit">Get exercise bases</button>
+            </form>
+    </div>
+</div>
