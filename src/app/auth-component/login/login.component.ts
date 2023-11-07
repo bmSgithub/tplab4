@@ -104,7 +104,7 @@ export class LoginComponent {
     let user: User = this.CargarUser();
     try {
       if (await this.verificarCuenta(user.email!) && await this.verificarCuenta2(user.userName!)) {
-         this.verificado = false;
+          this.verificado = false;
           await this.authService.AddUser(user);
           alert("Usuario agregado con exito");
           this.router.navigate(["/home"]);
@@ -117,8 +117,6 @@ export class LoginComponent {
     catch (error) {
       console.log(error);
     }
-
-
   }
 
   private CargarUser(): User {
