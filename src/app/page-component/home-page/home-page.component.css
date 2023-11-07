@@ -1,0 +1,94 @@
+.contenedorGigante{
+  
+  font-family: 'Lato', sans-serif;
+  background-image: url(src\assets\images\landing\fondo2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center top;
+  height: auto;
+}
+
+*{
+    box-sizing: inherit;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.cartas{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1rem ;
+    gap:5rem;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 15rem;
+    padding-bottom: 2rem;
+}
+
+.col img{
+    width: 100%;
+    height: 450px;
+}
+.col{
+    opacity: 0.7;
+}
+
+.card-body h2{
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    text-decoration: underline;
+}
+.card-body{
+    padding: 1rem;
+    padding-bottom: 0;
+}
+
+.card-body p{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.botonesDirigibles{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.botonesDirigibles button{
+    background-color:#EB5506 ;
+    border: none;
+    padding: 0.5rem;
+    width: 10rem;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+.cartaza{
+    transition: 0.4s;
+}
+
+.cartaza:hover{
+    
+    transform: scale(1.1);
+ 
+    .card-body h2{
+        font-weight: bold;
+       
+    }
+    .card-body p{
+        font-weight: bold;
+       
+    }
+    .col{
+        opacity: 1;
+    }
+}
+.h-100{
+    border: 1px black solid;
+}
+
