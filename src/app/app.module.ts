@@ -10,6 +10,8 @@ import { HomePageComponent } from './page-component/home-page/home-page.componen
 import { MuscleGroupPageComponent } from './page-component/muscle-group-page/muscle-group-page.component';
 import { MuscleViewPageComponent } from './page-component/muscle-view-page/muscle-view-page.component';
 import { RegisterComponent } from './auth-component/register/register.component';
+import { SharedModule } from './shared/shared.module';
+import { AboutUsComponent } from './page-component/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { RegisterComponent } from './auth-component/register/register.component'
     HomePageComponent,
     MuscleGroupPageComponent,
     MuscleViewPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

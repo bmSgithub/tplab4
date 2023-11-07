@@ -1,0 +1,47 @@
+.exercise-container {
+  display: inline-block;
+  margin: 10px;
+  background-color: #FFA500;
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 30%; 
+  
+}
+
+.field-container {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+  width: auto; 
+  text-align: center
+}
+
+.exercise-info h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.exercise-image {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+a.video-link {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #888;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+a.video-link:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed;
+  pointer-events: none;
+}

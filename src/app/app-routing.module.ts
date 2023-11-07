@@ -6,6 +6,7 @@ import { HomePageComponent } from './page-component/home-page/home-page.componen
 import { MuscleGroupPageComponent } from './page-component/muscle-group-page/muscle-group-page.component';
 import { MuscleViewPageComponent } from './page-component/muscle-view-page/muscle-view-page.component';
 import { RegisterComponent } from './auth-component/register/register.component';
+import { AboutUsComponent } from './page-component/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -29,8 +30,12 @@ const routes: Routes = [
     component: MuscleGroupPageComponent
   },
   {
-    path:'muscleView',
-    component: MuscleViewPageComponent
+    path:'muscleView/:id',
+    component: MuscleViewPageComponent,
+  },
+  {
+    path:'aboutus',
+    component: AboutUsComponent,
   },
   {
     path: '',

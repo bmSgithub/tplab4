@@ -7,10 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent {
-  constructor(private router: Router){}
+  
 
-  public login(){
-    this.router.navigate(['/login']);
-  }
+  
 
 }
