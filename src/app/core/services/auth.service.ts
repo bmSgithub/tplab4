@@ -73,6 +73,7 @@ export class AuthService {
                         resolve(false);
                     }
                 },
+                
                 error:(error) => reject(error)
             })
         })
