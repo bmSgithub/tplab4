@@ -148,6 +148,12 @@
       "userName": "bmchado5",
       "email": "bmachadoo@mail.com",
       "password": "4545"
+    },
+    {
+      "id": 5,
+      "userName": "blas",
+      "email": "blasms99@gmail.com",
+      "password": "12345678"
     }
   ]
 }
