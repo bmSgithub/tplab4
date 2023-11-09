@@ -144,16 +144,10 @@
       "password": "12test345"
     },
     {
-      "id": 4,
-      "userName": "bmchado5",
-      "email": "bmachadoo@mail.com",
-      "password": "4545"
-    },
-    {
-      "id": 5,
-      "userName": "bmchado6",
-      "email": "rubinisantiago@gmail.com",
-      "password": "wew45"
+      "id": 6,
+      "userName": "santiago",
+      "email": "santiago@mail.com",
+      "password": "test9876"
     }
   ]
 }

@@ -7,6 +7,8 @@ import { MuscleGroupPageComponent } from './page-component/muscle-group-page/mus
 import { MuscleViewPageComponent } from './page-component/muscle-view-page/muscle-view-page.component';
 import { RegisterComponent } from './auth-component/register/register.component';
 import { AboutUsComponent } from './page-component/about-us/about-us.component';
+import { authGuard } from './guards/auth.guard';
+import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +17,7 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component: LoginComponent
+    component: LoginComponent,canActivate:[loginGuard]
   },
   {
     path:'register',
@@ -23,7 +25,7 @@ const routes: Routes = [
   },
   {
     path:'home',
-    component: HomePageComponent
+    component: HomePageComponent,canActivate:[authGuard]
   },
   {
     path:'muscleGroup',

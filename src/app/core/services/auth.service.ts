@@ -1,8 +1,10 @@
 import { Injectable } from "@angular/core";
 import { User } from "../Models";
 import { ApiService } from "./api.service";
-import { Observable, lastValueFrom } from "rxjs";
 import { v4 as uuidv4 } from 'uuid';
+import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { Observable, catchError, map, of, tap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -10,9 +12,49 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class AuthService {
 
-    constructor(private apiService: ApiService){}
+    baseUrl: string = "http://localhost:3000"
+
+    constructor(private apiService: ApiService, private route:Router,private http:HttpClient){}
+    private user?:User;
+
+   /*  get currentUser(): User | undefined {
+        if (!this.user) return undefined
+        return { ...this.user };
+      }
+ */
+    verificarEmailYPass(email:string,password:string)
+    {
+       this.apiService.getUsers().subscribe(users => {
+       const founded = users.find(u => u.email === email && u.password === password)
+            if(founded)
+             {
+                 this.user = founded;
+                 localStorage.setItem('token', founded.id!.toString())
+                 this.route.navigate(["/home"]);
+             }
+             else
+             {
+                alert("El usuario no fue encontrado");
+             }
+       })
+     
+    }
+
+    checkStatusAutenticacion(): Observable<boolean> {
+        const token = localStorage.getItem('token')
+        if (!token) {
+          return of(false)
+        }
+        return this.http.get<User>(`${this.baseUrl}/users/${token}`)
+          .pipe(
+            tap(u => this.user = u),
+            map(u => !!u),
+            catchError(err => of(false))
+          )
+      } 
     
-    public async checkAuthentication(email:string, password: string): Promise<boolean>{
+    
+   /*  public async checkAuthentication(email:string, password: string): Promise<boolean>{
         let users: User[] = [];
         
         try{
@@ -25,27 +67,29 @@ export class AuthService {
         }
         return users.length == 1;
     }
+     */
     
-    setUser(user: any) {
+   /*  setUser(user: any) {
         if(this.isLoggedIn()){
           this.logout();
         }
         localStorage.setItem('usertoken', uuidv4());
-      }
+      } */
     
     getUser() {
-    const userString = localStorage.getItem('usertoken');
+    const userString = localStorage.getItem('token');
     if(userString)
     return JSON.parse(userString);
     }
     
     isLoggedIn() {
-    const userData = localStorage.getItem('usertoken');
+    const userData = localStorage.getItem('token');
     return userData!=null;
     }
     
     logout() {
-    localStorage.removeItem('usertoken');
+    localStorage.removeItem('token');
+    this.route.navigate(["/landing"]);
     }
 
     public VerificarCuenta(email:string):Promise<boolean>{

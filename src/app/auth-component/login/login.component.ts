@@ -48,9 +48,12 @@ export class LoginComponent {
     }
   }
 
+
+
+
   /* login */
 
-  public async checkAuthentication() {
+/*   public async checkAuthentication() {
     const check = this.authService.checkAuthentication(this.user.email, this.user.password);
 
     if(await check){
@@ -60,6 +63,13 @@ export class LoginComponent {
     {
       alert("No existe el usuario");
     }
+  }
+ */
+
+
+  iniciarSession() {
+
+    this.authService.verificarEmailYPass(this.user.email,this.user.password)
   }
 
 
@@ -107,7 +117,7 @@ export class LoginComponent {
           this.verificado = false;
           await this.authService.AddUser(user);
           alert("Usuario agregado con exito");
-          this.router.navigate(["/home"]);
+          location.reload();
       }
       else
       {

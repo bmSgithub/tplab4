@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Category, User, Exercise, ExerciseImage, ExerciseInfo, ExerciseVideo, ExerciseList, ExerciseImageList, ExerciseVideoList } from '../Models';
 import { API_ENDPOINTS } from './api.endpoints';
 
@@ -16,6 +16,10 @@ export class ApiService {
   //#region Users
   getUserToAuth(email:string, password: string): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}&password=${password}`);
+  }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}/users`);
   }
 
   public getUsersToRegister2(UserName:string): Observable<User[]>{

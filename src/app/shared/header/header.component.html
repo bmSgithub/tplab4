@@ -12,8 +12,16 @@
       <li><a href="#">About us</a></li>
       </ul>
     </nav>
+    <div class="button" *ngIf="!result">
     <button class="btn-23" (click)="login()">
       <span class="text">START</span>
       <span aria-hidden="" class="marquee">START</span>
     </button>
+  </div>
+  <div class="button" *ngIf="result">
+    <button class="btn-23" (click)="logOut()">
+      <span class="text">Log Out</span>
+      <span aria-hidden="" class="marquee">LOgOut</span>
+    </button>
+  </div>
   </header>
