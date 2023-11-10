@@ -9,6 +9,7 @@ import { RegisterComponent } from './auth-component/register/register.component'
 import { AboutUsComponent } from './page-component/about-us/about-us.component';
 import { authGuard } from './guards/auth.guard';
 import { loginGuard } from './guards/login.guard';
+import { categoryGuard } from './guards/category.guard';
 
 const routes: Routes = [
   {
@@ -29,11 +30,11 @@ const routes: Routes = [
   },
   {
     path:'muscleGroup',
-    component: MuscleGroupPageComponent
+    component: MuscleGroupPageComponent,canActivate:[authGuard]
   },
   {
     path:'muscleView/:id',
-    component: MuscleViewPageComponent,
+    component: MuscleViewPageComponent,canActivate:[authGuard,categoryGuard]
   },
   {
     path:'aboutus',

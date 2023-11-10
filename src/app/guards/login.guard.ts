@@ -5,7 +5,7 @@ import { AuthService } from '../core/services/auth.service';
 
 export const loginGuard: CanActivateFn = (route, state) => {
 
-                    const authService = inject(AuthService);
+  const authService = inject(AuthService);
   const  router = inject(Router);
   return authService.checkStatusAutenticacion()
                     .pipe(
@@ -17,6 +17,4 @@ export const loginGuard: CanActivateFn = (route, state) => {
                       }),
                       map(estaAutenticado => !estaAutenticado)
                     )
-
-
 };
