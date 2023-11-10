@@ -18,7 +18,7 @@ export class ExerciseService {
         const categoryData = await lastValueFrom(this.apiService.getCategoryDataByCategoryId(categoryId));
         
         if (categoryData) {
-          return this.apiService.getRandomExerciseIds(categoryData, 5);
+          return this.apiService.getRandomExerciseIds(categoryData, 6);
         } else {
           console.error('Category data is null.');
           return [];
