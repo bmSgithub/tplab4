@@ -13,7 +13,7 @@ export const categoryGuard: CanActivateFn = (route, state) => {
   }
   else
   {
-    router.navigate(["/muscleGroup"])
+    router.navigate(["/home"])
     return false;
   }
 };
