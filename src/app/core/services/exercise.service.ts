@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Observable, forkJoin, from, lastValueFrom} from "rxjs";
 import { ApiService } from "./api.service";
 import { ExerciseInfo } from "../Models";
+import { removeHtmlTagsAndEntities } from "../String-extension";
+
   
 @Injectable({
     providedIn: 'root'
@@ -43,7 +45,7 @@ export class ExerciseService {
             id: exercise.id,
             name: exercise.name,
             exercise_base: exercise.exercise_base,
-            description: exercise.description || "Base description",
+            description: removeHtmlTagsAndEntities(exercise.description) || exercise.name,
             category: exercise.category,
             image: image?.image || "Image not available",
             video: video?.video || "Video not available",

@@ -61,7 +61,6 @@
         12
       ],
       "exerciseIds": [
-        301,
         81,
         154,
         513,
@@ -116,7 +115,6 @@
         237,
         323,
         538,
-        538,
         135,
         194,
         238,
@@ -144,10 +142,10 @@
       "password": "12test345"
     },
     {
-      "id": 4,
-      "userName": "bmchado5",
-      "email": "bmachadoo@mail.com",
-      "password": "4545"
+      "id": 6,
+      "userName": "santiago",
+      "email": "santiago@mail.com",
+      "password": "test9876"
     }
   ]
 }
