@@ -1,24 +1,37 @@
-<div *ngFor="let exerciseInfo of exerciseInfoArray" class="exercise-container">
-    <div class="field-container">
-      <h2>{{ exerciseInfo.name }}</h2>
-    </div>
-  
-    <div class="field-container">
-      <p>Description: {{ exerciseInfo.description }}</p>
-    </div>
-  
-    <div class="field-container">
-      <div *ngIf="exerciseInfo.image">
-        <img [src]="exerciseInfo.image" alt="Exercise Image" class="exercise-image">
+<div class="contenedorGigante">
+  <div class="ejercicios">
+    
+      <div
+        *ngFor="let exerciseInfo of exerciseInfoArray"
+        class="ejercicio">
+        <div class="titulo">
+          <h2>{{ exerciseInfo.name }}</h2>
+        </div>
+
+        <div class="descripcion">
+          <p>{{ exerciseInfo.description }}</p>
+        </div>
+
+        <div class="imagencita">
+          <div *ngIf="exerciseInfo.image">
+            <img
+              [src]="exerciseInfo.image"
+              alt="Exercise Image"
+              class="exercise-image"
+            />
+          </div>
+        </div>
+
+        <div class="links">
+          <p *ngIf="exerciseInfo.video !== 'Video not available'">
+            <a [href]="exerciseInfo.video" target="_blank" class="video-link"
+              >Watch Video</a
+            >
+          </p>
+          <p *ngIf="exerciseInfo.video === 'Video not available'">
+            <a class="video-link not-available" style="color: grey;">Not Available</a>
+          </p>
+        </div>
       </div>
-    </div>
-  
-    <div class="field-container">
-      <p *ngIf="exerciseInfo.video !== 'Video not available'">
-        <a [href]="exerciseInfo.video" target="_blank" class="video-link">Watch Video</a>
-      </p>
-      <p *ngIf="exerciseInfo.video === 'Video not available'">
-        <a class="video-link not-available">Not Available</a>
-      </p>
-    </div>
   </div>
+</div>

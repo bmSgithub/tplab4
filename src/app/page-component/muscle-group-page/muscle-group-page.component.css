@@ -1,25 +1,182 @@
-.category-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-  }
-  
-  .category-button {
-    font-size: 1.5em;
-    background-color: #FFA500; 
-    color: #FFFFFF; 
-    border: none;
-    border-radius: 10px;
-    padding: 15px 20px; 
-    margin: 10px; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .category-button:hover {
-    background-color: #FF8C00; 
-  }
+*{
+  box-sizing: inherit;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  app-home-page{
-    visibility: hidden;
-  }
+.contenedorGigante{
+  
+  font-family: 'Lato', sans-serif;
+  background-image: url(src\assets\images\landing\otroFondo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center top;
+  height: auto;
+  padding-top: 5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
+.botones{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/*#region Boton 1*/
+.button {
+  border: none;
+  border-radius: 1rem;
+  width: 350px;
+  height: 400px;
+  background-color:#EB5506 ;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src\assets\images\landing\jaycutler2.png');
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.button:hover::before {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+
+
+
+.button2 {
+  border: none;
+  border-radius: 1rem;
+  width: 350px;
+  height: 400px;
+  background-color:#EB5506 ;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.button2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src\assets\images\landing\arnold.png');
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.button2:hover::before {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.button2:hover {
+  opacity: 1;
+}
+
+
+
+
+
+.button3 {
+  border: none;
+  border-radius: 1rem;
+  width: 350px;
+  height: 400px;
+  background-color:#EB5506 ;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.button3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src\assets\images\landing\cbum2.png');
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.button3:hover::before {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.button3:hover {
+  opacity: 1;
+}
+
+
+.button4 {
+  border: none;
+  border-radius: 1rem;
+  width: 350px;
+  height: 400px;
+  background-color:#EB5506 ;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.button4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src\assets\images\landing\back.png');
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.button4:hover::before {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.button4:hover {
+  opacity: 1;
+}
