@@ -26,6 +26,9 @@ export class MuscleViewPageComponent implements OnInit{
         this.id = +idParam;
         this.getExerciseBase();
       }
+      //aca pienso que se podria hacer algo como, si en vez de tener ID la url
+      //tiene algo como .../muscleView/favourites
+      //si es ese el caso, entonces va a hacer this.getFavourites();
     });
   }
 
@@ -54,6 +57,21 @@ export class MuscleViewPageComponent implements OnInit{
         console.error('An error occurred:', error);
       }
     });
+  }
+
+  public async getFavourites() {
+    try {
+      const exerciseIds = await lastValueFrom(this.apiService.getUserFavourites());
+      console.log(exerciseIds);
+      this.basesId = exerciseIds;
+      this.getExerciseInfoArray();
+      setTimeout(() => {
+        this.loading = false;
+      }, 1200);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 
   public async toggleFavorite(exerciseInfo: ExerciseInfo): Promise<void> {

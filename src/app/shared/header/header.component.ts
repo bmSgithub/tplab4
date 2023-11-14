@@ -34,4 +34,7 @@ export class HeaderComponent implements OnInit{
   public home(){
     this.router.navigate(['/home']);
   }
+  public favourites(){
+    this.router.navigate(['/muscleView/favourites']);
+  }
 }
