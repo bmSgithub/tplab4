@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, forkJoin, from, lastValueFrom} from "rxjs";
+import { Observable, forkJoin, from, last, lastValueFrom} from "rxjs";
 import { ApiService } from "./api.service";
 import { ExerciseInfo } from "../Models";
 import { removeHtmlTagsAndEntities } from "../String-extension";
@@ -29,16 +29,18 @@ export class ExerciseService {
       }
     }
     
-      public async getExerciseInfo(baseId: number): Promise<ExerciseInfo> {
+    public async getExerciseInfo(baseId: number): Promise<ExerciseInfo> {
         try {
           const exerciseObservable = this.apiService.getExercise(baseId);
           const imageObservable = this.apiService.getExerciseImage(baseId);
           const videoObservable = this.apiService.getExerciseVideo(baseId);
+          const favouriteObservable = this.apiService.checkFavourite(baseId);
       
-          const [exercise, image, video] = await Promise.all([
+          const [exercise, image, video, isFavourite] = await Promise.all([
             lastValueFrom(exerciseObservable),
             lastValueFrom(imageObservable),
             lastValueFrom(videoObservable),
+            lastValueFrom(favouriteObservable)
           ]);
 
           const exerciseInfo = new ExerciseInfo({
@@ -49,8 +51,9 @@ export class ExerciseService {
             category: exercise.category,
             image: image?.image || "Image not available",
             video: video?.video || "Video not available",
+            favourite: isFavourite === true
           });
-      
+    
           return exerciseInfo;
         } catch (error) {
           console.error('An error occurred:', error);

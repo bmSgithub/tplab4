@@ -8,8 +8,21 @@
     </div>
     <nav>
       <ul class="navegador">
-      <li *ngIf="result"><a href="http://localhost:4200/home">Home</a></li>
-      <li><a href="http://localhost:4200/aboutus">About us</a></li>
+        <li *ngIf="result">
+          <button class="nav-button" (click)="home()">
+            <span class="button-text">HOME</span>
+          </button>
+        </li>
+        <li *ngIf="result">
+          <button class="nav-button" (click)="home()">
+            <span class="button-text">FAVOURITES</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-button" (click)="aboutus()">
+            <span class="button-text">ABOUT US</span>
+          </button>
+        </li>
       </ul>
     </nav>
     <div class="button" *ngIf="!result">
