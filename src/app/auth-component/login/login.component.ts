@@ -134,7 +134,8 @@ export class LoginComponent {
       id: 0,
       userName: this.formulario.controls['userName'].value,
       email: this.formulario.controls['email'].value,
-      password: this.formulario.controls['password'].value
+      password: this.formulario.controls['password'].value,
+      favourites: []
     }
 
     return user;

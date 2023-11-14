@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Observable, catchError, lastValueFrom, map, of, switchMap, tap } from 'rxjs';
 import { Category, User, Exercise, ExerciseImage, ExerciseInfo, ExerciseVideo, ExerciseList, ExerciseImageList, ExerciseVideoList } from '../Models';
 import { API_ENDPOINTS } from './api.endpoints';
 
@@ -22,6 +22,17 @@ export class ApiService {
     return this.http.get<User[]>(`${this.baseUrl}/users`);
   }
 
+  getCurrentUser(): Observable<User> {
+    const userId = this.getUserId();
+    return this.http.get<User>(`${this.baseUrl}/users/${userId}`);
+  }
+
+  getUserId() {
+    const userString = localStorage.getItem('token');
+    if(userString)
+    return JSON.parse(userString);
+  }
+
   public getUsersToRegister2(UserName:string): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/users?userName=${UserName}`);
   }
@@ -36,10 +47,14 @@ export class ApiService {
     );
   }
 
+  updateUser(user: User): Promise<User> {
+    return lastValueFrom(this.http.put<User>(`${this.baseUrl}/users/${user.id}`, user));
+  }
+
 
   //#endregion
 
-  //#region Get exercises
+  //#region Get exercises base
   getCategoryDataByCategoryId(categoryId: number): Observable<Category> {
     return this.http.get<Category[]>(`${this.baseUrl}/allowedexercises`).pipe(
       map((categories: Category[]) => categories.find(category => category.categoryId.includes(categoryId)) || new Category())
@@ -86,5 +101,38 @@ export class ApiService {
     );
   }
   
+  //#endregion
+
+  //#region Favourites
+  getUserFavourites(): Observable<number[]> {
+    return this.getCurrentUser().pipe(
+      map((user) => user.favourites),
+      catchError((error) => {
+        console.error('Error fetching user favorites:', error);
+        return [];
+      })
+    );
+  }
+
+  checkFavourite(baseId: number): Observable<boolean> {
+    return this.getCurrentUser().pipe(
+      tap((user) => {
+        //console.log('User:',this.getUserId());
+      }),
+      map((user) => {
+        //console.log('Favorites:', user.favourites);
+        const isFavorite = user.favourites.includes(baseId);
+        //console.log(`Is ${baseId} a favorite? ${isFavorite}`);
+        return isFavorite;
+      })
+    );
+  }
+
+  async saveFavourites(favourites: number[]): Promise<void> {
+    const user = await lastValueFrom(this.getCurrentUser());
+    user.favourites = favourites;
+    await this.updateUser(user);
+  }
+
   //#endregion
 }

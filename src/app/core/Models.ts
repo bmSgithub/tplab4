@@ -6,12 +6,14 @@ export class User implements IUser{
     userName: string | null;
     email: string = '';
     password: string = '';
+    favourites: number[] = []
   
     constructor(user?:any){
       this.id =  user == undefined ? null : user.id;
       this.userName = user == undefined ? null : user.id;
       this.email = user == undefined ? '' : user.email;
       this.password = user == undefined ? '' : user.password;
+      this.favourites = user == undefined ? '' : user.favourites;
     }
   
   }
@@ -39,6 +41,7 @@ export class ExerciseInfo implements IExerciseInfo {
   category: number;
   image: string;
   video: string;
+  favourite: boolean;
 
   constructor(exerciseInfoData?: any){
     this.id = exerciseInfoData?.id || 0;
@@ -48,6 +51,7 @@ export class ExerciseInfo implements IExerciseInfo {
     this.category = exerciseInfoData?.category || 0;
     this.image = exerciseInfoData?.image || '';
     this.video = exerciseInfoData?.video || '';
+    this.favourite = exerciseInfoData?.favourite || false;
   }
 }
 

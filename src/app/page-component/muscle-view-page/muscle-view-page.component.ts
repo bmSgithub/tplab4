@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 import { ExerciseInfo } from 'src/app/core/Models';
+import { ApiService } from 'src/app/core/services/api.service';
 import { ExerciseService } from 'src/app/core/services/exercise.service';
 
 @Component({
@@ -13,8 +15,9 @@ export class MuscleViewPageComponent implements OnInit{
   public id: number = 0;
   public basesId: number[] = []
   public exerciseInfoArray: ExerciseInfo[] = [];
+  public loading: boolean = true;
 
-  constructor(private router: Router, private exerciseService: ExerciseService, private route: ActivatedRoute) {}
+  constructor(private router: Router, private exerciseService: ExerciseService, private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -23,6 +26,9 @@ export class MuscleViewPageComponent implements OnInit{
         this.id = +idParam;
         this.getExerciseBase();
       }
+      //aca pienso que se podria hacer algo como, si en vez de tener ID la url
+      //tiene algo como .../muscleView/favourites
+      //si es ese el caso, entonces va a hacer this.getFavourites();
     });
   }
 
@@ -32,6 +38,9 @@ export class MuscleViewPageComponent implements OnInit{
       console.log(exerciseIds);
       this.basesId = exerciseIds;
       this.getExerciseInfoArray();
+      setTimeout(() => {
+        this.loading = false;
+      }, 1200);
     } catch (error) {
       console.error(error);
       throw error;
@@ -50,8 +59,49 @@ export class MuscleViewPageComponent implements OnInit{
     });
   }
 
+  public async getFavourites() {
+    try {
+      const exerciseIds = await lastValueFrom(this.apiService.getUserFavourites());
+      console.log(exerciseIds);
+      this.basesId = exerciseIds;
+      this.getExerciseInfoArray();
+      setTimeout(() => {
+        this.loading = false;
+      }, 1200);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
 
-
-
-
+  public async toggleFavorite(exerciseInfo: ExerciseInfo): Promise<void> {
+    const oldStatus = exerciseInfo.favourite;
+    const userFavourites = await lastValueFrom(this.apiService.getUserFavourites());
+    console.log(userFavourites.length);
+    
+    console.log(`${userFavourites} get`);
+    if (oldStatus === false) {
+      if(userFavourites.length < 9)
+      {
+        userFavourites.push(exerciseInfo.exercise_base);
+        console.log(`${userFavourites} push`);
+        exerciseInfo.favourite = !exerciseInfo.favourite;
+        
+      }
+      else
+      {
+        exerciseInfo.favourite = exerciseInfo.favourite;
+        alert("Can't have more than 9 favourites!");
+      }
+    } else {
+      const indexToRemove = userFavourites.indexOf(exerciseInfo.exercise_base);
+      if (indexToRemove !== -1) {
+        userFavourites.splice(indexToRemove, 1);
+      }
+      console.log(`${userFavourites} remove`);
+      exerciseInfo.favourite = !exerciseInfo.favourite;
+    }
+  
+    this.apiService.saveFavourites(userFavourites);
+  }
 }

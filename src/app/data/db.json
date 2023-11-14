@@ -10,7 +10,6 @@
         927,
         167,
         427,
-        167,
         171,
         377,
         576,
@@ -127,25 +126,44 @@
       "id": 1,
       "userName": "bmchado",
       "email": "bmachado@mail.com",
-      "password": "test12345"
+      "password": "test12345",
+      "favourites": [
+        458,
+        1085,
+        76,
+        91,
+        829,
+        1084,
+        206
+      ]
     },
     {
       "id": 2,
       "userName": "abattisti",
       "email": "abattisti@mail.com",
-      "password": "12345test"
+      "password": "12345test",
+      "favourites": []
     },
     {
       "id": 3,
       "userName": "mcabrera",
       "email": "mcabrera@mail.com",
-      "password": "12test345"
+      "password": "12test345",
+      "favourites": []
     },
     {
       "id": 6,
       "userName": "santiago",
       "email": "santiago@mail.com",
-      "password": "test9876"
+      "password": "test9876",
+      "favourites": []
+    },
+    {
+      "id": 7,
+      "userName": "blas2",
+      "email": "blasms99@gmail.com",
+      "password": "holaholahola123",
+      "favourites": []
     }
   ]
 }

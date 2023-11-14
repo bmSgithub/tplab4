@@ -1,5 +1,6 @@
 .contenedorGigante{
-  font-family: 'Lato', sans-serif;
+  
+  font-family: 'Russo One', sans-serif;
   background-image: url(src\assets\images\landing\anotherFondo.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,7 +12,7 @@
 *{
     box-sizing: inherit;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Russo One', sans-serif;
     margin: 0;
     padding: 0;
 } 
@@ -42,10 +43,8 @@
 
 .card-body h2{
     text-align: center;
-
     font-size: 1.5rem;
-    font-family: 'Lato', sans-serif;
-    text-decoration: underline;
+    font-family: 'Russo One', sans-serif;
 }
 .card-body{
     padding: 1rem;
@@ -53,7 +52,7 @@
 }
 
 .card-body p{
-    font-family: 'Lato', sans-serif;
+    font-family: 'Russo One', sans-serif;
     text-align: center;
 }
 
@@ -68,7 +67,7 @@
     border: none;
     padding: 0.5rem;
     width: 10rem;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Russo One', sans-serif;
     color: white;
 }
 
@@ -81,10 +80,6 @@
     transform: scale(1.1);
  
     .card-body h2{
-        font-weight: bold;
-       
-    }
-    .card-body p{
         font-weight: bold;
        
     }

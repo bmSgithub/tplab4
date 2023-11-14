@@ -76,11 +76,6 @@ export class AuthService {
         localStorage.setItem('usertoken', uuidv4());
       } */
     
-    getUser() {
-    const userString = localStorage.getItem('token');
-    if(userString)
-    return JSON.parse(userString);
-    }
     
     isLoggedIn() {
     const userData = localStorage.getItem('token');

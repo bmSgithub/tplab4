@@ -4,6 +4,7 @@ export interface IUser{
     userName:string | null
     email: string;
     password: string;
+    favourites: number[];
 }
 //#endregion
 
@@ -23,6 +24,7 @@ export interface IExerciseInfo {
     category: number;
     image: string;
     video: string;
+    favourite: boolean;
   }
 //#region Exercise
 export interface IExercise {

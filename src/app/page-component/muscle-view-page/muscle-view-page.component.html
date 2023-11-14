@@ -1,38 +1,49 @@
 <app-header></app-header>
+
 <div class="contenedorGigante">
-  <div class="ejercicios">
-    
-      <div
-        *ngFor="let exerciseInfo of exerciseInfoArray"
-        class="ejercicio">
-        <div class="titulo">
-          <h2>{{ exerciseInfo.name }}</h2>
-        </div>
+  <div class="contenedorGigante">
+  <div *ngIf="loading" class="loader-container">
+    <!-- Add your CSS spinner here -->
+    <div class="loader"></div>
+  </div>
 
-        <div class="descripcion">
-          <p>{{ exerciseInfo.description }}</p>
-        </div>
+  <div *ngIf="!loading" class="ejercicios">
+    <div *ngFor="let exerciseInfo of exerciseInfoArray" class="ejercicio">
+      <i
+        class="favorite-icon"
+        [ngClass]="{'favorite': exerciseInfo.favourite}"
+        (click)="toggleFavorite(exerciseInfo)"
+      >
+        <i class="fas fa-heart"></i>
+      </i>
+      <div class="titulo">
+        <h2>{{ exerciseInfo.name }}</h2>
+      </div>
 
-        <div class="imagencita">
-          <div *ngIf="exerciseInfo.image">
-            <img
-              [src]="exerciseInfo.image"
-              alt="Exercise Image"
-              class="exercise-image"
-            />
-          </div>
-        </div>
+      <div class="descripcion">
+        <p>{{ exerciseInfo.description }}</p>
+      </div>
 
-        <div class="links">
-          <p *ngIf="exerciseInfo.video !== 'Video not available'">
-            <a [href]="exerciseInfo.video" target="_blank" class="video-link"
-              >Watch Video</a
-            >
-          </p>
-          <p *ngIf="exerciseInfo.video === 'Video not available'">
-            <a class="video-link not-available" style="color: grey;">Not Available</a>
-          </p>
+      <div class="imagencita">
+        <div *ngIf="exerciseInfo.image">
+          <img
+            [src]="exerciseInfo.image"
+            alt="Exercise Image"
+            class="exercise-image"
+          />
         </div>
+      </div>
+
+      <div class="links">
+        <ng-container *ngIf="exerciseInfo.video !== 'Video not available'; else notAvailableButton">
+          <a [href]="exerciseInfo.video" target="_blank" class="video-link available">
+            <div class="video-button">WATCH VIDEO</div>
+          </a>
+        </ng-container>
+      
+        <ng-template #notAvailableButton>
+          <div class="video-button not-available" style="color: rgb(0, 0, 0); cursor: not-allowed;">NOT AVAILABLE</div>
+        </ng-template>
       </div>
   </div>
 </div>

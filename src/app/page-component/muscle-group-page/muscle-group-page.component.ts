@@ -12,7 +12,7 @@ export class MuscleGroupPageComponent {
 
   constructor(private router: Router) {}
   
-  public irCardioAbs(categoryId: number) {
+  public goMuscleView(categoryId: number) {
     this.router.navigate(["/muscleView", categoryId]);
   }
 }
