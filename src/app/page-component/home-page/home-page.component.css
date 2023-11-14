@@ -1,7 +1,6 @@
 .contenedorGigante{
-  
   font-family: 'Lato', sans-serif;
-  background-image: url(src\assets\images\landing\fondo2.png);
+  background-image: url(src\assets\images\landing\anotherFondo.png);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -15,7 +14,8 @@
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-}
+} 
+
 .cartas{
     display: flex;
     flex-wrap: wrap;
@@ -24,8 +24,8 @@
     justify-content: center;
     align-items: center;
 
-    padding-top: 15rem;
-    padding-bottom: 2rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
 }
 
 .col img{
@@ -34,7 +34,11 @@
 }
 .col{
     opacity: 0.7;
+    width: 450px;
 }
+
+
+
 
 .card-body h2{
     text-align: center;
