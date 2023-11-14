@@ -20,7 +20,7 @@ export const categoryGuard: CanActivateFn = (route, state) => {
 
 function ValidarUrl(UrlActual: string): boolean {
   console.log(UrlActual);
-  const UrlsValidas = ['9','8','12','11','10'];
+  const UrlsValidas = ['9','8','12','11','10','favourites'];
   return UrlsValidas.includes(UrlActual);
 }
 

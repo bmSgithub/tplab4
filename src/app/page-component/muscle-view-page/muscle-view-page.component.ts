@@ -22,14 +22,15 @@ export class MuscleViewPageComponent implements OnInit{
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
-      if (idParam) {
-        this.id = +idParam;
+      if (idParam !== 'favourites') {
+        this.id = +idParam!;
         this.getExerciseBase();
       }
-      //aca pienso que se podria hacer algo como, si en vez de tener ID la url
-      //tiene algo como .../muscleView/favourites
-      //si es ese el caso, entonces va a hacer this.getFavourites();
+     else {
+        this.getFavourites();  
+     }
     });
+    
   }
 
   public async getExerciseBase() {
@@ -86,7 +87,6 @@ export class MuscleViewPageComponent implements OnInit{
         userFavourites.push(exerciseInfo.exercise_base);
         console.log(`${userFavourites} push`);
         exerciseInfo.favourite = !exerciseInfo.favourite;
-        
       }
       else
       {

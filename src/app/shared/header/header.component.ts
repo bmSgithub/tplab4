@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/home']);
   }
   public favourites(){
-    this.router.navigate(['/muscleView/favourites']);
+    const id = 'favourites';
+    this.router.navigate(['/muscleView',id]);
   }
 }
