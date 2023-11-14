@@ -9,6 +9,8 @@ main{
 }
 
 .textoYboton{
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -21,6 +23,7 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Russo One', sans-serif;
 }
 
 .texto span{
@@ -28,18 +31,21 @@ main{
 }
 
 .texto button{
+  justify-content: center;
+  align-items: center;
   border: none;
   width: 10px;
   height: 10px;
+  font-family: 'Russo One', sans-serif;
 }
 
 .tarjetitas{
-
   display: flex;
   flex-wrap: wrap;
   margin-top: 3rem;
   width: 100%;
   justify-content: space-around;
+  font-family: 'Russo One', sans-serif;
 
 }
 
@@ -51,6 +57,7 @@ main{
   background-color: white;
   border-radius: 2rem;
   margin-top: 1rem;
+  
 }
 
 .loguito{
@@ -66,7 +73,8 @@ main{
 
 .loguito i{
 
- 
+  justify-content: center;
+  align-items: center;
   color: white;/* Ancho del icono al 80% del contenedor */
   display: flex; /* Permite que el contenido se expanda horizontalmente */
   justify-content: center; /* Alinea horizontalmente el contenido en el centro */
@@ -82,11 +90,12 @@ main{
   flex-direction: column;
   margin-left: 1rem ;
   margin-top: 0.3rem;
+  font-family: 'Russo One', sans-serif;
   
 }
 .textoTarjeta h2{
 
-  
+  font-family: 'Russo One', sans-serif;
   font-weight: bold;
 }
 
