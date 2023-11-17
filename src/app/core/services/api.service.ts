@@ -120,9 +120,7 @@ export class ApiService {
         //console.log('User:',this.getUserId());
       }),
       map((user) => {
-        //console.log('Favorites:', user.favourites);
         const isFavorite = user.favourites.includes(baseId);
-        //console.log(`Is ${baseId} a favorite? ${isFavorite}`);
         return isFavorite;
       })
     );

@@ -8,13 +8,13 @@ export const loginGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
   const  router = inject(Router);
   return authService.checkStatusAutenticacion()
-                    .pipe(
-                      tap( estaAutenticado => {
-                        if(estaAutenticado){
-                          router.navigate(['/home'])
+    .pipe(
+      tap( estaAutenticado => {
+        if(estaAutenticado){
+          router.navigate(['/home'])
 
-                        }
-                      }),
-                      map(estaAutenticado => !estaAutenticado)
-                    )
+        }
+      }),
+      map(estaAutenticado => !estaAutenticado)
+    )
 };

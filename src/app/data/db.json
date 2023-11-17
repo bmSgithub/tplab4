@@ -34,7 +34,6 @@
         272,
         275,
         482,
-        691,
         246,
         465,
         659,
@@ -108,7 +107,6 @@
         73,
         537,
         539,
-        135,
         75,
         185,
         237,
@@ -164,6 +162,49 @@
       "email": "blasms99@gmail.com",
       "password": "holaholahola123",
       "favourites": []
+    },
+    {
+      "id": 8,
+      "userName": "bmStesting",
+      "email": "bmachado2@mail.com",
+      "password": "test12345",
+      "favourites": [
+        185,
+        323,
+        75,
+        135,
+        576
+      ]
+    },
+    {
+      "id": 9,
+      "userName": "usertesting",
+      "email": "usertesting@mail.com",
+      "password": "test12345",
+      "favourites": [
+        377,
+        458,
+        957,
+        394,
+        1087,
+        50,
+        272,
+        1088,
+        906
+      ]
+    },
+    {
+      "id": 10,
+      "userName": "testnew",
+      "email": "testnew@mail.com",
+      "password": "test123",
+      "favourites": [
+        513,
+        484,
+        185,
+        377,
+        375
+      ]
     }
   ]
 }

@@ -75,9 +75,9 @@ main{
 
   justify-content: center;
   align-items: center;
-  color: white;/* Ancho del icono al 80% del contenedor */
-  display: flex; /* Permite que el contenido se expanda horizontalmente */
-  justify-content: center; /* Alinea horizontalmente el contenido en el centro */
+  color: white;
+  display: flex;
+  justify-content: center;
   align-items: center;
   font-size: 2rem;
 }

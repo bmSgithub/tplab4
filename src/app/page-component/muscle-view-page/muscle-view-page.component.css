@@ -89,7 +89,7 @@
     overflow: hidden;
 
     img {
-      height: 10px; /* Specify the appropriate unit, e.g., 10px */
+      height: 10px;
       width: 10rem;
       transition: transform 1s ease;
     }
@@ -98,13 +98,13 @@
   .links {
     display: flex;
     justify-content: center;
-    margin: 2rem auto; /* Added margin: 2rem auto; for centering */
+    margin: 2rem auto;
     border: 1px solid #f59663f6;
     background-color: #f59663f6;
     border-radius: 1rem;
     padding: 0.5rem;
-    max-width: 200px; /* Adjusted maximum width */
-    width: 100%; /* Make the width 100% to ensure responsiveness */
+    max-width: 200px;
+    width: 100%;
     transition: background-color 0.3s ease, border 0.3s ease;
   }
   
@@ -140,7 +140,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray background */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .loader {
@@ -149,7 +149,7 @@
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  animation: spin 5s linear infinite; /* Adjusted duration to 2 seconds */
+  animation: spin 5s linear infinite;
 }
 
 @keyframes spin {

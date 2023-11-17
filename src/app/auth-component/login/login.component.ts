@@ -27,7 +27,7 @@ export class LoginComponent {
     this.opcion = false;
     const miElemento = document.getElementById('imagencita') as HTMLImageElement;
     if (miElemento) {
-     miElemento.src ="assets/images/landing/GORDO.png" ;
+     miElemento.src ="assets/images/landing/register.png" ;
    }
    const texto=document.getElementById("textito");
    if(texto){
@@ -40,7 +40,7 @@ export class LoginComponent {
      this.opcion = true;
      const miElemento = document.getElementById('imagencita') as HTMLImageElement;
      if (miElemento) {
-      miElemento.src ="assets/images/landing/MUSCULOSO.png";
+      miElemento.src ="assets/images/landing/login.png";
     }
     const texto=document.getElementById("textito");
     if(texto){
@@ -48,33 +48,12 @@ export class LoginComponent {
     }
   }
 
-
-
-
-  /* login */
-
-/*   public async checkAuthentication() {
-    const check = this.authService.checkAuthentication(this.user.email, this.user.password);
-
-    if(await check){
-      this.router.navigate(['/home'])
-    }
-    else
-    {
-      alert("No existe el usuario");
-    }
-  }
- */
-
-
   iniciarSession() {
 
     this.authService.verificarEmailYPass(this.user.email,this.user.password)
   }
 
-
-  /* register */
-
+//#region Register
   public async verificarCuenta(email: string): Promise<boolean> {
 
     try {
@@ -141,7 +120,7 @@ export class LoginComponent {
     return user;
   }
 
-   
+//#endregion
 
 
 }

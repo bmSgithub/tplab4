@@ -17,11 +17,6 @@ export class AuthService {
     constructor(private apiService: ApiService, private route:Router,private http:HttpClient){}
     private user?:User;
 
-   /*  get currentUser(): User | undefined {
-        if (!this.user) return undefined
-        return { ...this.user };
-      }
- */
     verificarEmailYPass(email:string,password:string)
     {
        this.apiService.getUsers().subscribe(users => {
@@ -52,30 +47,6 @@ export class AuthService {
             catchError(err => of(false))
           )
       } 
-    
-    
-   /*  public async checkAuthentication(email:string, password: string): Promise<boolean>{
-        let users: User[] = [];
-        
-        try{
-            let apiResponse = this.apiService.getUserToAuth(email, password);
-            users = await lastValueFrom(apiResponse);
-            this.setUser(users[0])
-            console.log(users);
-        }catch(error){
-            console.log(error);
-        }
-        return users.length == 1;
-    }
-     */
-    
-   /*  setUser(user: any) {
-        if(this.isLoggedIn()){
-          this.logout();
-        }
-        localStorage.setItem('usertoken', uuidv4());
-      } */
-    
     
     isLoggedIn() {
     const userData = localStorage.getItem('token');
