@@ -6,8 +6,14 @@
     <div class="loader"></div>
   </div>
 
+  <div *ngIf="!loading" class="search-container">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search exercises..." class="search-field">
+    <button (click)="applyFilter()" class="filter-button">Filter</button>
+    <button (click)="clearFilter()" class="clear-filter-button">Clear Filter</button>
+  </div>
+
   <div *ngIf="!loading" class="ejercicios">
-    <div *ngFor="let exerciseInfo of exerciseInfoArray" class="ejercicio">
+    <div *ngFor="let exerciseInfo of filteredExerciseInfoArray" class="ejercicio">
       <i
         class="favorite-icon"
         [ngClass]="{'favorite': exerciseInfo.favourite}"

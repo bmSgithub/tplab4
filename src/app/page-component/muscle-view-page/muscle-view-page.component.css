@@ -156,3 +156,41 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.search-field {
+  flex: 0 0 calc(33% - 20px);
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 20px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+.filter-button,
+.clear-filter-button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+.filter-button {
+  background-color: orange;
+  
+}
+
+.clear-filter-button {
+  background-color: #ccc;
+  margin-left: 20px;
+}

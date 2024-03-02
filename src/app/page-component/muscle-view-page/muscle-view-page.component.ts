@@ -15,7 +15,9 @@ export class MuscleViewPageComponent implements OnInit{
   public id: number = 0;
   public basesId: number[] = []
   public exerciseInfoArray: ExerciseInfo[] = [];
+  public filteredExerciseInfoArray: ExerciseInfo[] = [];
   public loading: boolean = true;
+  public searchText: string = '';
 
   constructor(private router: Router, private exerciseService: ExerciseService, private route: ActivatedRoute, private apiService: ApiService) {}
 
@@ -53,6 +55,7 @@ export class MuscleViewPageComponent implements OnInit{
       next: (exerciseInfoArray: ExerciseInfo[]) => {
         console.log(exerciseInfoArray);
         this.exerciseInfoArray = exerciseInfoArray;
+        this.filterExerciseInfoArray();
       },
       error: (error) => {
         console.error('An error occurred:', error);
@@ -103,5 +106,24 @@ export class MuscleViewPageComponent implements OnInit{
     }
   
     this.apiService.saveFavourites(userFavourites);
+  }
+
+  private filterExerciseInfoArray() {
+    if (!this.searchText) {
+      this.filteredExerciseInfoArray = [...this.exerciseInfoArray];
+    } else {
+      this.filteredExerciseInfoArray = this.exerciseInfoArray.filter(exercise => 
+        exercise.name.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+  }
+
+  applyFilter() {
+    this.filterExerciseInfoArray();
+  }
+
+  clearFilter() {
+    this.searchText = "";
+    this.filterExerciseInfoArray();
   }
 }
