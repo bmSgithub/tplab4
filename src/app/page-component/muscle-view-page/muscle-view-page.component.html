@@ -6,11 +6,14 @@
     <div class="loader"></div>
   </div>
 
-  <div *ngIf="!loading" class="search-container">
+  <div *ngIf="!loading" class="container">
     <input type="text" [(ngModel)]="searchText" placeholder="Search exercises..." class="search-field">
     <button (click)="applyFilter()" class="filter-button">Filter</button>
     <button (click)="clearFilter()" class="clear-filter-button">Clear Filter</button>
   </div>
+
+  <div *ngIf="showNoMatches" class="no-matches-message">No exercises matched the filter. Filtering back by all...</div>
+  
 
   <div *ngIf="!loading" class="ejercicios">
     <div *ngFor="let exerciseInfo of filteredExerciseInfoArray" class="ejercicio">
